@@ -2,8 +2,14 @@
 
 .ticket {
   width: 100%;
+  background: red;
+  
 }
 
 .ticket:hover {
   cursor: pointer;
+}
+
+.div1 {
+  display: inline-block;
 }

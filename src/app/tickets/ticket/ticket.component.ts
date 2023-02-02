@@ -12,16 +12,28 @@ export class TicketComponent implements OnInit {
    * Inputs & Output allow communication between parent & child components.
    * More information: https://angular.io/guide/component-interaction
    */
+
+
   @Input()
   ticket: Ticket;
 
   @Output()
   ticketHasBeenSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  status = 1;
   constructor() {
   }
 
   ngOnInit() {
+    if(this.ticket.major == 'SI'){
+      this.status = 1;
+    }
+    else if(this.ticket.major == 'GE'){
+      this.status = 2;
+    }
+    else if(this.ticket.major == 'GB'){
+      this.status = 3;
+    }
   }
 
   selectTicket() {
