@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../../../services/ticket/ticket.service';
 import { Ticket } from '../../../models/ticket';
+import { log } from 'console';
 
 @Component({
   selector: 'app-ticket-list',
@@ -22,4 +23,8 @@ export class TicketListComponent implements OnInit {
     console.log('event received from child:', hasBeenSelected);
   }
 
+  deleteTicket(ticket: Ticket){
+    console.log(ticket);
+    this.ticketService.deleteTicket(ticket);
+  }
 }

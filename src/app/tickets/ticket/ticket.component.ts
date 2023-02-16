@@ -20,10 +20,14 @@ export class TicketComponent implements OnInit {
   @Output()
   ticketHasBeenSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  @Output()
+  ticketHasBeenDeleted: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   status = 1;
   constructor() {
   }
-
+  
+  
   ngOnInit() {
     if(this.ticket.major == 'SI'){
       this.status = 1;
@@ -38,5 +42,9 @@ export class TicketComponent implements OnInit {
 
   selectTicket() {
     this.ticketHasBeenSelected.emit(true);
+  }
+
+  deleteTicket() {
+    this.ticketHasBeenDeleted.emit(true);
   }
 }
