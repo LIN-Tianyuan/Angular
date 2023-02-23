@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../../../services/ticket/ticket.service';
 import { Ticket } from '../../../models/ticket';
-import { log } from 'console';
 
 @Component({
   selector: 'app-ticket-list',
@@ -11,6 +10,7 @@ import { log } from 'console';
 export class TicketListComponent implements OnInit {
 
   public ticketList: Ticket[] = [];
+  public displayTicketArchive:boolean;
 
   constructor(public ticketService: TicketService) {
     this.ticketService.tickets$.subscribe((tickets) => this.ticketList = tickets);
@@ -23,8 +23,13 @@ export class TicketListComponent implements OnInit {
     console.log('event received from child:', hasBeenSelected);
   }
 
-  deleteTicket(ticket: Ticket){
+  archiveTicket(ticket: Ticket){
     console.log(ticket);
-    this.ticketService.deleteTicket(ticket);
+    this.ticketService.archiveTicket(ticket);
   }
+
+  changeDisplayTicketArchive(){
+    this.displayTicketArchive = !this.displayTicketArchive
+  }
+
 }

@@ -12,6 +12,8 @@
   <div class="div1" *ngIf="status == 3">
     <i class="far fa-star"></i> {{ticket.major}}
   </div>
+  <br>
+  <div>archivedTicket:{{ticket.archived}}</div>
+  <button type="submit" class="btn-custom" (click)="archivedTicket()">Archive</button>
 </div>
-<button type="submit" class="btn-custom" (click)="deleteTicket()">Delete</button>
 
