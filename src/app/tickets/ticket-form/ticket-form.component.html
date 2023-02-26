@@ -20,6 +20,16 @@
     </select>
   </label>
   <br>
+  <label for="student">
+    Student <br>
+    <!-- <input class="input-custom" type="text" id="major" [formControlName]="'major'"> -->
+    <select name="student-field" id="student" [formControlName]="'student'">
+      <option *ngFor="let currentStudent of STUDENT_LIST" [value]="currentStudent">
+        {{ currentStudent.id }} - {{ currentStudent.nom }} - {{ currentStudent.prenom }}
+      </option>
+    </select>
+  </label>
+  <br>
   <button type="submit" class="btn-custom" (click)="addTicket()">Create</button>
 </form>
 
